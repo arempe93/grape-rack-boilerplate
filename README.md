@@ -1,14 +1,14 @@
-Rails Grape Jumpstart
+Grape on Rack Jumpstart
 =====================
 
-A basic starting point for [Grape APIs](https://github.com/ruby-grape/grape) running on Rails.
+A basic starting point for [Grape APIs](https://github.com/ruby-grape/grape) running on Rack only.
 
 ## Installation
 
 #### 1. Clone the boilerplate
 
 ```
-git clone --depth=1 git@github.com:arempe93/grape-rails-boilerplate.git myproject
+git clone --depth=1 git@github.com:arempe93/grape-rack-boilerplate.git myproject
 cd myproject
 
 git commit --amend -m "initial boilerplate commit"
@@ -54,8 +54,6 @@ _`EjBHdKe1BK4XW7Hg` is the id of the request_
 
 #### Error Handling
 
-Normally, whenever your api has an uncaught error, Rails will take over and serve up a 500 with the standard template it uses based on the environment. This can be problematic because it provides clients expecting JSON no indication of what the error might be and it also, depending on your setup, could not be included in the Grape CORS policy. This can cause clients to give unhelpful error messages for the request.
-
 The standard response the middleware will return for any uncaught exception is as follows
 
 ```javascript
@@ -69,7 +67,7 @@ This format is entirely confiugrable in `app/api/base.rb`.
 
 #### 404 Handling
 
-Handles 404 as well, instead of letting Rails take over with a `RoutingError`. This also avoids some of the problems described above. This can be configured in `app/api/base.rb`
+Handles 404 as well, this can be configured in `app/api/base.rb`
 
 #### API Reloading
 
@@ -77,11 +75,11 @@ Automatically reloads changes to Grape API files in development. Thanks to the [
 
 #### Swagger API Documentation
 
-Comes bundled with [Swagger](http://swagger.io/) for API documentation through the help of [grape-swagger](https://github.com/ruby-grape/grape-swagger) and [grape-swagger-rails](https://github.com/ruby-grape/grape-swagger-rails). You can configure the documentation title and options in `config/initializers/swagger.rb`
+Comes bundled with [Swagger](http://swagger.io/) for API documentation through the help of [grape-swagger](https://github.com/ruby-grape/grape-swagger).
 
 #### Route Printing
 
-Run `rake grape:routes` to print all routes for the application, similar to `rake routes` in plain Rails
+Run `rake grape:routes` to print all routes for the application, similar to `rake routes` in Rails
 
 #### CORS Configuration
 
@@ -103,7 +101,7 @@ not_found! message: 'User was not found', code: '404.12'
 
 #### Automatic Model Annotation
 
-Makes use of the [annotate gem](https://github.com/ctran/annotate_models) to give helpful schema annotation comments above your Rails models automatically, whenever `rake db:migrate` is run
+Makes use of the [annotate gem](https://github.com/ctran/annotate_models) to give helpful schema annotation comments above your ActiveRecord models automatically, whenever `rake db:migrate` is run
 
 ```ruby
 # == Schema Information
@@ -129,7 +127,7 @@ Makes use of the [annotate gem](https://github.com/ctran/annotate_models) to giv
 
 #### Enumeration Support
 
-An autoloaded directory `app/enums` has been included to support enums, specifically [EnumerateIt enums](https://github.com/cassiomarques/enumerate_it): the best gem I have found for Ruby/Rails enums.
+An autoloaded directory `app/enums` has been included to support enums, specifically [EnumerateIt enums](https://github.com/cassiomarques/enumerate_it): the best gem I have found for Ruby enums.
 
 I find that enumerations and Grape APIs work very well together, especially for validation and entities.
 
