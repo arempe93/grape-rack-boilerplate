@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'rails', '= 6.0.0.beta2'
+FRAMEWORK_VERSION = '= 6.0.0.rc1'
+
+# Configuration
+gem 'activesupport', FRAMEWORK_VERSION
+gem 'zeitwerk'
 
 # Grape API
 gem 'grape'
@@ -14,16 +18,18 @@ gem 'rack-cors', require: 'rack/cors'
 
 # Swagger API doc
 gem 'grape-swagger'
-gem 'grape-swagger-rails'
 gem 'grape-swagger-entity'
 
 # Enums
-gem 'enumerate_it'
+# gem 'enumerate_it'
 
 # Global configs
 gem 'global'
 
 # Database
+gem 'activerecord', FRAMEWORK_VERSION
+gem 'activemodel', FRAMEWORK_VERSION
+gem 'otr-activerecord'
 gem 'mysql2', '~> 0.5'
 
 # Authentication
@@ -31,9 +37,12 @@ gem 'bcrypt'
 gem 'jwt'
 
 # Background Jobs
-gem 'redis'
-gem 'sidekiq'
-gem 'sinatra', require: false
+# gem 'redis'
+# gem 'sidekiq'
+# gem 'sinatra', require: false
+
+# Sever
+gem 'puma'
 
 group :development, :test do
   # Linting
@@ -44,13 +53,13 @@ group :development, :test do
   gem 'rack-test'
 
   # Environment bootstrap
-  gem 'dotenv-rails'
+  # gem 'dotenv-rails'
 
   # Spring
   gem 'spring'
 
   # Model Annotations
-  gem 'annotate', github: 'ctran/annotate_models'
+  gem 'annotate'
 
   # Seeding information
   gem 'faker'
@@ -58,7 +67,7 @@ end
 
 group :test do
   # Model factories
-  gem 'factory_girl_rails', '= 4.8.0'
+  gem 'factory_bot'
 
   # Database transaction cleaning
   gem 'database_cleaner'

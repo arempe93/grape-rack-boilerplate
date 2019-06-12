@@ -1,4 +1,4 @@
-if %w[development test].include?(Rails.env)
+if %w[development test].include?(App.env)
   require 'rubocop/rake_task'
   RuboCop::RakeTask.new
 
@@ -6,7 +6,7 @@ if %w[development test].include?(Rails.env)
     c.options = ['--auto-correct', '--only=Style/FrozenStringLiteralComment,Layout/EmptyLineAfterMagicComment']
   end
 
-  if Rails.env.development?
+  if App.env.development?
     namespace :db do
       %i[migrate rollback].each do |cmd|
         task cmd do

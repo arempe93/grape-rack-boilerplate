@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SecureToken
-  SECRET = Rails.application.secrets.secret_key_base
+  SECRET = Global.secrets.secret_key_base
 
   class << self
     def decode!(jwt)

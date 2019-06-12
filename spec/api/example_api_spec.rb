@@ -26,4 +26,15 @@ describe API::Example do
       expect(json[:hello]).to eql who
     end
   end
+
+  context 'GET / with param' do
+    before do
+      get '/api/example', who: 'me'
+    end
+
+    it 'should respond with 200' do
+      expect_status 200
+      expect(json[:hello]).to eql 'me'
+    end
+  end
 end

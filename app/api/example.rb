@@ -6,7 +6,7 @@ module API
       optional :who, type: String, default: 'world'
     end
     get :example do
-      { hello: params[:who] }
+      present :hello, params[:who]
     end
   end
 end

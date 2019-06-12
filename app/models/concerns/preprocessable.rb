@@ -29,7 +29,7 @@ module Preprocessable
     rescue ActiveRecord::ActiveRecordError
       # NOTE: swallow error. this is most likely occurring because the database
       #   has not been created for this environment yet, or a migration is pending
-      Rails.logger.error "Unable to check if #{attr} is valid for preprocessing"
+      App.logger.error "Unable to check if #{attr} is valid for preprocessing"
     end
   end
 

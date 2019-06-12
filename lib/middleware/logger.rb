@@ -2,7 +2,7 @@
 
 module Middleware
   class Logger < Grape::Middleware::Base
-    include ANSIColor
+    include Chalk
     include ErrorHandling
 
     SLASH = '/'
@@ -17,8 +17,8 @@ module Middleware
       @app = app
 
       @options = options
-      @logger = Rails.application.config.logger
-      @filter = ActiveSupport::ParameterFilter.new(Rails.application.config.filter_parameters)
+      @logger = App.logger
+      @filter = ActiveSupport::ParameterFilter.new(%i[password])
       @display_headers = headers
     end
 

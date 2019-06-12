@@ -25,7 +25,7 @@ module API
       end
 
       def sort(query, sort_by: params[:sort_by], sort_direction: params[:sort_direction])
-        # NOTE: not using hash syntax because Rails will prefix the table name of
+        # NOTE: not using hash syntax because AR will prefix the table name of
         #   the collection model (eg. users.last_name), and that could be undesired
         #   behavior (eg. joins)
         query.order("#{sort_by} #{sort_direction}")

@@ -4,8 +4,7 @@ task :console do
   require 'irb'
   require 'irb/completion'
 
-  require Rails.root.join('config', 'application.rb')
-  Rails.application.require_environment!
+  require App.root.join('config', 'boot.rb')
 
   def app
     API::Base
@@ -17,7 +16,7 @@ task :console do
 
   include Rack::Test::Methods
 
-  puts "Loading #{Rails.env} environment with Grape mounted..."
+  puts "Loading #{App.env} environment with Grape mounted..."
 
   ARGV.clear
   IRB.start

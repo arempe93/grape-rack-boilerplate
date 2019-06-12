@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative './ansi_color.rb'
+require_relative './chalk'
 
 module TaggedTimestampLogger
   module Formatter
-    extend ANSIColor
+    extend Chalk
 
     ERROR = 'ERROR'
     WARN = 'WARN'

@@ -1,7 +1,7 @@
 module Support
   module Requests
     def app
-      API::Base
+      App.stack
     end
 
     def expect_status(status, code: nil)
