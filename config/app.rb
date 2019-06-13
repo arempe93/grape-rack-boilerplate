@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'pathname'
+require 'active_support'
 
 require_relative '../lib/tagged_timestamp_logger.rb'
 

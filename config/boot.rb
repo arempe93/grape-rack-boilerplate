@@ -28,12 +28,12 @@ end
 loader = Zeitwerk::Loader.new
 loader.inflector = MyInflector.new
 
-loader.push_dir('/Users/andrew/Documents/Projects/grape-rack-boilerplate/app')
-loader.push_dir('/Users/andrew/Documents/Projects/grape-rack-boilerplate/app/models')
-loader.push_dir('/Users/andrew/Documents/Projects/grape-rack-boilerplate/app/services')
-loader.push_dir('/Users/andrew/Documents/Projects/grape-rack-boilerplate/lib')
+loader.push_dir(App.root.join('app'))
+loader.push_dir(App.root.join('app', 'models'))
+loader.push_dir(App.root.join('app', 'services'))
+loader.push_dir(App.root.join('lib'))
 
-loader.preload('/Users/andrew/Documents/Projects/grape-rack-boilerplate/app/api/validators')
+loader.preload(App.root.join('app', 'api', 'validators'))
 
 loader.enable_reloading
 loader.setup

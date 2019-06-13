@@ -4,10 +4,8 @@ task :console do
   require 'irb'
   require 'irb/completion'
 
-  require App.root.join('config', 'boot.rb')
-
   def app
-    API::Base
+    App.stack
   end
 
   def json
